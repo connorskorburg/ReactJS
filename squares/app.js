@@ -1,14 +1,41 @@
-ReactDOM.render(
-    React.createElement("h1", { style: { backgroundColor: "pink", color: "green", width: "250px", height: "250px" } }, "green on pink"),
-    document.getElementById("app1")
-);
+const Square = (props) => {
+    return React.createElement(
+        "h1",
+        {
+            style: {
+                backgroundColor: props.backgroundColor,
+                color: props.textColor,
+                display: "inline-block",
+                height: "250px",
+                width: "250px"
+            }
+        },
+        props.textColor + " on " + props.backgroundColor
+    );
+}
 
 ReactDOM.render(
-    React.createElement("h1", { style: { backgroundColor: "blue", color: "white", width: "250px", height: "250px" } }, "white on blue"),
-    document.getElementById("app2")
-);
-
-ReactDOM.render(
-    React.createElement("h1", { style: { backgroundColor: "red", color: "blue", width: "250px", height: "250px" } }, "blue on red"),
-    document.getElementById("app3")
+    React.createElement(
+        "div",
+        {},
+        Square(
+            {
+                backgroundColor: "blue",
+                textColor: "white"
+            }
+        ),
+        Square(
+            {
+                backgroundColor: "red",
+                textColor: "blue"
+            }
+        ),
+        Square(
+            {
+                backgroundColor: "pink",
+                textColor: "green"
+            }
+        ),
+    ),
+    document.getElementById("app")
 );
